@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+*{
+    box-sizing: border-box;
+}
+
+[class*="swiper-button"] {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+    z-index: 1;
+    width: 50px; 
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.swiper-button-next {	
+	right: 0;	
+}
+
+.swiper-button-prev {
+	left: 0;
+	transform: rotateY(-180deg);
+}
