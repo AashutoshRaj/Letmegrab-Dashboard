@@ -47,7 +47,7 @@ const SignUp = () => {
     };
 
     localStorage.setItem("userData", JSON.stringify([userData]));
-    toast.success("Successfull created account")
+    toast.success("Successful created account")
      navigate("/login")
   };
 

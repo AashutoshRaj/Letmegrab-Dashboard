@@ -7,6 +7,7 @@ const DashBoardData = ({setIsOpen}) => {
     <div>
         <DashBoardHeader setIsOpen={setIsOpen}/>
 
+        
         <DashBoardTab/> 
     </div>
   )

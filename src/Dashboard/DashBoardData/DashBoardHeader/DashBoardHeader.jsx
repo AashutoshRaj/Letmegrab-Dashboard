@@ -63,7 +63,7 @@ const DashBoardHeader = ({ setIsOpen }) => {
             {notificationSign === true && (
               <div
                 className={`absolute top-10 right-0 bg-white w-[240px] shadow-lg rounded-md 
-               hidden group-hover:block 
+               hidden group-hover:block z-1
                   ${showNotification ? "!block" : ""}            
                `}
               >

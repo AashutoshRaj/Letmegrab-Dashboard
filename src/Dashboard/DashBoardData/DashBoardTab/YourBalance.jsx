@@ -6,7 +6,7 @@ import { MoneySend } from '../../../assets/Icons/Invoice'
 const YourBalance = () => {
   return (
     <>
-        <div className='bg-white rounded-md p-[24px]'>
+        <div className='bg-white rounded-md p-4'>
                 <div className='flex justify-between items-center mb-[24px]'>
                     <h5>Your balance</h5>
                     <div className='cursor-pointer'>

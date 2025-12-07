@@ -5,11 +5,14 @@ import App from './App.jsx'
 import AuthProvider from './AuthContext.jsx'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
+import { ThemeProvider } from './ThemeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
+    <ThemeProvider>
     <AuthProvider>
-        <ToastContainer />
-        <App />
+        <ToastContainer />           
+            <App />
+           
     </AuthProvider>
- 
+    </ThemeProvider>
 )

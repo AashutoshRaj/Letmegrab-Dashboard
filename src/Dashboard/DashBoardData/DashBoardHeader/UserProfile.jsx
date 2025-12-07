@@ -27,7 +27,7 @@ const UserProfile = () => {
           <img src={arrowIcon} alt="arrowicon" className="w-4 h-4 rotate-180" />
         )}
         {isDropDown && (
-          <div className="absolute top-16 right-8 bg-white w-[160px] shadow-lg rounded-md ">
+          <div className="absolute top-16 right-8 bg-white w-[160px] shadow-lg rounded-md z-1">
             <div className="p-4 hover:bg-[#f2f2f2] cursor-pointer">Profile</div>
             <div className="p-4 hover:bg-[#f2f2f2] cursor-pointer">
               Settings
