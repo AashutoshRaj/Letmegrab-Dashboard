@@ -53,13 +53,13 @@ const SideBar = ({isOpen}) => {
   ];
 
   return (
-    <div className="relative flex flex-col h-full items-baseline transition-all delay-150">
+    <div className="relative flex flex-col h-full items-baseline transition-all delay-150 pt-[50px] sm:p-0">
       {isOpen ? (<>
       <Link to="/">
         <img
           src={iconLogo}
           alt="logo"
-          className="w-full max-w-[80px] sm:max-w-[162px] mb-[30px]  object-cover w-full h-full object-left xl:object-none xl:h-auto"
+          className="w-full hidden sm:block max-w-[80px] sm:max-w-[162px] mb-[30px]  object-cover w-full h-full object-left xl:object-none xl:h-auto"
         /></Link>
       </>) : (
          <div className="max-w-[50px] overflow-hidden mx-auto xl:m-0 xl:max-w-full ">
@@ -72,7 +72,7 @@ const SideBar = ({isOpen}) => {
       </div>
       )}
      
-      <div className="overflow-auto h-[calc(100vh-169px)]">
+      <div className="overflow-auto h-[calc(100vh-169px)] w-full">
         <div className="mb-[56px]">
           <h6 className="mb-3 xl:pl-5 font-medium text-[14px] leading-[150%] tracking-[-0.02em] text-[#90A3BF] sm:text-center xl:text-justify">
             Menu
