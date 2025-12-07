@@ -4,3 +4,12 @@
 *{
     box-sizing: border-box!important;
 }
+.apexcharts-bar-area:hover {
+  fill: #1C1E23 !important;
+}
+.apexcharts-tooltip {
+  background: #1C1E23 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+}

@@ -10,8 +10,6 @@ const ApexChart = () => {
   },
 ],
 
-
-
     options: {
       chart: {
         type: "bar",
@@ -57,7 +55,8 @@ const ApexChart = () => {
       
       tooltip: {
         x: {
-                    show: false,   
+          show: false,   
+                  
                 },
         y: {
           formatter: (val) => "$ " + val + " thousands",

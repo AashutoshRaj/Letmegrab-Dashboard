@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/logoGrab.png";
+import iconLogo from "../../assets/Images/SliderImages/IconlogoGrab.png"
 import {
   DarkModeIcon,
   DashboardIcon,
@@ -17,7 +18,7 @@ import {
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
-const SideBar = (isOpen) => {
+const SideBar = ({isOpen}) => {
   const [isDark, setIsDark] = useState(false);
 
   const navigate = useNavigate();
@@ -52,8 +53,16 @@ const SideBar = (isOpen) => {
   ];
 
   return (
-    <div className="relative flex flex-col h-full">
-      <div className="max-w-[50px] overflow-hidden mx-auto xl:m-0 xl:max-w-full ">
+    <div className="relative flex flex-col h-full items-baseline transition-all delay-150">
+      {isOpen ? (<>
+      <Link to="/">
+        <img
+          src={iconLogo}
+          alt="logo"
+          className="w-full max-w-[80px] sm:max-w-[162px] mb-[30px]  object-cover w-full h-full object-left xl:object-none xl:h-auto"
+        /></Link>
+      </>) : (
+         <div className="max-w-[50px] overflow-hidden mx-auto xl:m-0 xl:max-w-full ">
        <Link to="/">
         <img
           src={logo}
@@ -61,6 +70,8 @@ const SideBar = (isOpen) => {
           className="w-full max-w-[162px] mb-[30px]  object-cover w-full h-full object-left xl:object-none xl:h-auto"
         /></Link>
       </div>
+      )}
+     
       <div className="overflow-auto h-[calc(100vh-169px)]">
         <div className="mb-[56px]">
           <h6 className="mb-3 xl:pl-5 font-medium text-[14px] leading-[150%] tracking-[-0.02em] text-[#90A3BF] sm:text-center xl:text-justify">
@@ -71,8 +82,8 @@ const SideBar = (isOpen) => {
               <button
                 key={index}
                 
-                className={`h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row  items-center gap-3 px-3 py-2 rounded-lg sm:text-[10px] xl:text-sm transition cursor-pointer
-                  ${isOpen ? 'xl:flex-col ': " "}
+                className={`transition-all delay-150 h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row  items-center gap-3 px-3 py-2 rounded-lg sm:text-[10px] xl:text-sm transition cursor-pointer
+               ${isOpen ? "xl:!flex-col sm:!text-[10px] !px-1   " : " "}
                  
               ${
                 item.active
@@ -89,14 +100,18 @@ const SideBar = (isOpen) => {
         </div>
 
         <div className="">
-          <h6 className="mb-3 xl:pl-5 font-medium text-[14px] leading-[150%] tracking-[-0.02em] text-[#90A3BF] sm:text-center xl:text-justify">
+          <h6 className={`mb-3 xl:pl-5 font-medium text-[14px] leading-[150%] tracking-[-0.02em] text-[#90A3BF] sm:text-center xl:text-justify
+            ${isOpen ? "text-[14px] !pl-0 " : " "} 
+            `}>
             Preferences
           </h6>
           <nav className="space-y-2">
             {preferenceItems.map((item, index) => (
               <button
                 key={index}
-                className="h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row items-center gap-3 px-2 xl:px-3 py-2 rounded-xl sm:text-[10px] xl:text-sm text-gray-600 hover:bg-gray-100 transition cursor-pointer"
+                className={`transition-all delay-150 h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row items-center gap-3 px-2 xl:px-3 py-2 rounded-xl sm:text-[10px] xl:text-sm text-gray-600 hover:bg-gray-100 transition cursor-pointer
+                 ${isOpen ? "xl:!flex-col sm:!text-[10px] !px-1 " : " "} 
+                  `}
               >
                 <span className="">{item.icon}</span>
                 {item.label}
@@ -106,7 +121,9 @@ const SideBar = (isOpen) => {
         </div>
 
         <div
-          className="h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row items-center gap-3 px-3 py-2 rounded-xl sm:text-[10px] xl:text-sm text-gray-600 group hover:bg-gray-100 transition cursor-pointer"
+          className={`transition-all delay-150 h-[55px] mb-[5px] w-full flex sm:flex-col xl:flex-row items-center gap-3 px-3 py-2 rounded-xl sm:text-[10px] xl:text-sm text-gray-600 group hover:bg-gray-100 transition cursor-pointer
+             ${isOpen ? "xl:!flex-col sm:!text-[10px] !px-1 " : " "} 
+            `}
           onClick={handleSubmitTheme}
         >
           <span className="">
@@ -142,8 +159,11 @@ const SideBar = (isOpen) => {
       <div className="absolute bottom-0 w-full bg-white">
         <button
           onClick={logout}
-          className="h-[55px] mb-[5px] w-full flex sm:flex sm:flex-col xl:flex-row items-center gap-3 px-3 py-2 sm:text-[10px] xl:text-sm rounded-xl text-sm text-gray-600 hover:bg-gray-100 transition cursor-pointer"
+          className={`transition-all delay-150 h-[55px] mb-[5px] w-full flex sm:flex sm:flex-col xl:flex-row items-center gap-3 px-3 py-2 sm:text-[10px] xl:text-sm rounded-xl text-sm text-gray-600 hover:bg-gray-100 transition cursor-pointer
+             ${isOpen ? "xl:!flex-col sm:!text-[10px] !px-1" : " "} 
+            `}
         >
+          
           <span className="">
             <LogoutIcon />
           </span>
