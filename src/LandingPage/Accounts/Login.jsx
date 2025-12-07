@@ -15,32 +15,38 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+ const onSubmit = (data) => {
 
-    const getData = localStorage.getItem("userData");
-    if (!getData) {
-      console.log("not founded");
-      return;
-    }
-    console.log("asdfasdfasdfsdf", getData);
+  const getData = localStorage.getItem("userData");
 
-    const conditionMatch = JSON.parse(getData).filter((item) => {
-      return item.email === data.email && item.password === data.password;
-    });
+  if (!getData) {
+    toast.error("No user found. Please Sign up first.");
+    return;
+  }
 
-    if (conditionMatch.length > 0) {
-      localStorage.setItem("auth", "true");
-      // const nameGet = localStorage.setItem("username", userName);
-      // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>", )
-      navigate("/product-table");
-      toast.success("Successfully Login")
-    } else {
-      toast.error("User not found")
-     
-    }
-    console.log(" sdfasdfasdfas ", conditionMatch);
-  };
+  const users = JSON.parse(getData);
+
+ 
+  const conditionMatch = users.filter((item) => {
+    return (
+      (item.email === data.email && item.password === data.password) || (item.userName === data.email) 
+    );
+  });
+
+  if (conditionMatch.length > 0) {
+    const loggedUser = conditionMatch[0];
+    console.log("loggedUser", loggedUser)
+    
+    localStorage.setItem("auth", "true");
+    localStorage.setItem("loggedUserName", loggedUser.userName);
+
+    toast.success("Successfully Login");
+    navigate("/product-table");
+  } else {
+    toast.error("User not found");
+  }
+};
+
   return (
     <>
       <div className="grid sm:grid-cols-2 gap-4 h-[calc(100vh-82px)] overflow-auto sm:overflow-hidden relative">

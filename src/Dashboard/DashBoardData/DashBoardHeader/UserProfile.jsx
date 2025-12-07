@@ -3,7 +3,7 @@ import arrowIcon from "../../../assets/Images/arrow-down.png";
 import userProfile from "../../../assets/Images/userImage.png";
 const UserProfile = () => {
  const isAuthenticated = localStorage.getItem("auth") === "true";
-  const userName = localStorage.getItem("userName"); 
+ const userName = localStorage.getItem("loggedUserName") || "User";
 
   const [isDropDown, setIsDropDown] = useState(false);
   return (
@@ -20,7 +20,7 @@ const UserProfile = () => {
           />
         </div>
       
-        <p className="hidden sm:block">John Cornors</p>
+        <p className="hidden sm:block">{userName}</p>
         {!isDropDown ? (
           <img src={arrowIcon} alt="arrowicon" className="w-4 h-4 " />
         ) : (
