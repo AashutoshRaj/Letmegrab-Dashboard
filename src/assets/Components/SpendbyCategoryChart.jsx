@@ -9,7 +9,16 @@ const SpendbyCategoryChart = () => {
         width: 580,        
         type: "donut",
       },
-      
+        plotOptions: {
+    pie: {
+      donut: {
+        size: "70%",   
+      }
+    }
+  },
+  stroke: {
+    width: 8,          // reduce gap border
+  },
       dataLabels: {
         enabled: false,
       },

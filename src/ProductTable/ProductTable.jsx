@@ -8,6 +8,7 @@ const ProductTable = () => {
   const [products, setProducts] = useState([]);
   const [viewProduct, setViewProduct] = useState(null);
   const [isEdit, setIsEdit] = useState(null);
+  const [search, setSearch] = useState("");
   // const { pId } = useParams();
 
   useEffect(() => {
@@ -78,8 +79,37 @@ const ProductTable = () => {
     setIsEdit(true);
   };
 
+  // Search
+ const searchProducts = products.filter((item) =>
+  item.title.toLowerCase().includes(search.toLowerCase())
+);
+
+
   return (
     <>
+    <div className="text-center mt-5 max-w-600px w-full max-w-[800px] m-auto">
+      <input 
+      type="search" placeholder="Search Product" className="w-full border border-[#333] p-5 rounded-full"
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+        />
+        {search && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+            {searchProducts.length > 0 ? (
+              searchProducts.map((item,index) => (
+                <div key={index} className="p-4 border rounded-xl">
+                  <img src={item.image} className="w-20 h-20 mx-auto" />
+                  <h3 className="font-semibold mt-3">{item.title}</h3>
+                  <p className="text-sm">$ {item.price} </p>
+                </div>
+              ))
+            ) : (
+              <p>No Products Found</p>
+            )}
+</div>
+        )}
+      
+    </div>
       <div className="max-w-[90%] sm:max-w-[1366px] w-full m-auto my-4 bg-[#fff] mt-10 rounded-xl overflow-auto sm:overflow-hidden">
         <table className="w-full">
           <thead className="bg-[var(--primary-color)]">

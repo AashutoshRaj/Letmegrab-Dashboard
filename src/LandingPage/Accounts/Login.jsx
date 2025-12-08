@@ -39,6 +39,7 @@ const Login = () => {
     
     localStorage.setItem("auth", "true");
     localStorage.setItem("loggedUserName", loggedUser.userName);
+   
 
     toast.success("Successfully Login");
     navigate("/product-table");
